@@ -15,4 +15,5 @@ MonoBehaviour:
   name: Sword
   icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   damage: 12
+  model: {fileID: 2360542916585648055, guid: 9cd09a43e87d4a5459247687298cb9ed, type: 3}
   attackRange: 1.06

@@ -13,4 +13,8 @@ public abstract class Weapon : ScriptableObject
     [SerializeField]
     private int damage;
     public int Damage => damage;
+
+    [SerializeField]
+    private GameObject model;
+    public GameObject Model => model;
 }
