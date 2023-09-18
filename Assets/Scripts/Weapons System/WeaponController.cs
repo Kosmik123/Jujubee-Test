@@ -74,6 +74,8 @@ public class WeaponController : MonoBehaviour
 
     public Weapon SpawnModel(Weapon weaponTemplate)
     {
-        return Instantiate(weaponTemplate, weaponHolder);
+        var weapon = Instantiate(weaponTemplate, weaponHolder);
+        weapon.gameObject.SetActive(false);
+        return weapon;
     }
 }
