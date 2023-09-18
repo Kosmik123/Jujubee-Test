@@ -18,7 +18,7 @@ public class WeaponController : MonoBehaviour
     private List<WeaponConfig> weapons = new List<WeaponConfig>();
     public IReadOnlyList<WeaponConfig> Weapons => weapons;
 
-    private readonly Dictionary<WeaponConfig, WeaponBehavior> weaponBehaviors = new Dictionary<WeaponConfig, WeaponBehavior>();
+    private readonly Dictionary<WeaponConfig, Weapon> weaponBehaviors = new Dictionary<WeaponConfig, Weapon>();
 
     private void Awake()
     {
@@ -76,7 +76,7 @@ public class WeaponController : MonoBehaviour
         OnWeaponChanged?.Invoke(CurrentWeapon);
     }
 
-    public WeaponBehavior SpawnModel(WeaponConfig weapon)
+    public Weapon SpawnModel(WeaponConfig weapon)
     {
         return Instantiate(weapon.Model, weaponHolder);
     }

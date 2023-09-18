@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class RangedWeaponBehavior : WeaponBehavior
+public class RangedWeapon : Weapon
 {
     public override void Use()
     {

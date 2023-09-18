@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class WeaponBehavior : MonoBehaviour
+public abstract class Weapon : MonoBehaviour
 {
     public abstract void Use();
 

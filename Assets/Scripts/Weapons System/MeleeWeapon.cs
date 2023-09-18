@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MeleeWeaponBehavior : WeaponBehavior
+public class MeleeWeapon : Weapon
 {
     public override void Use()
     {
