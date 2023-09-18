@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WeaponControllerUI : MonoBehaviour
 {
@@ -11,6 +10,8 @@ public class WeaponControllerUI : MonoBehaviour
     private WeaponDisplay weaponWindow;
     [SerializeField]
     private WeaponsListDisplay weaponsListDisplay;
+    [SerializeField]
+    private AmmoDisplay ammoDisplay;
 
     private void Reset()
     {
@@ -24,14 +25,15 @@ public class WeaponControllerUI : MonoBehaviour
 
     private void Start()
     {
-        RefreshDisplayedWeapon(controller.CurrentWeapon);
+        HandleChangedWeapon(controller.CurrentWeapon);
         weaponsListDisplay.Refresh();
     }
 
     private void OnEnable()
     {
-        controller.OnWeaponChanged += RefreshDisplayedWeapon;
+        controller.OnWeaponChanged += HandleChangedWeapon;
         controller.OnWeaponAdded += RefreshWeaponsList;
+        controller.OnWeaponUsed += Controller_OnWeaponUsed;
     }
 
     private void RefreshWeaponsList(Weapon weapon)
@@ -39,14 +41,29 @@ public class WeaponControllerUI : MonoBehaviour
         weaponsListDisplay.Refresh();
     }
 
-    private void RefreshDisplayedWeapon(Weapon newWeapon)
+    private void HandleChangedWeapon(Weapon newWeapon)
     {
         weaponWindow.Weapon = newWeapon;
+        if (newWeapon is RangedWeapon)
+        {
+            ammoDisplay.gameObject.SetActive(true);
+            ammoDisplay.Refresh(newWeapon);
+        }
+        else
+        {
+            ammoDisplay.gameObject.SetActive(false);
+        }
+    }
+
+    private void Controller_OnWeaponUsed(Weapon weapon)
+    {
+        ammoDisplay.Refresh(weapon);
     }
 
     private void OnDisable()
     {
-        controller.OnWeaponChanged -= RefreshDisplayedWeapon;
+        controller.OnWeaponChanged -= HandleChangedWeapon;
         controller.OnWeaponAdded -= RefreshWeaponsList;
+        controller.OnWeaponUsed -= Controller_OnWeaponUsed;
     }
 }

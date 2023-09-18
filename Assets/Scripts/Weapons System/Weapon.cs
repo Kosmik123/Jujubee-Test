@@ -10,6 +10,6 @@ public abstract class Weapon<T> : Weapon where T : WeaponConfig
 {
     [SerializeField]
     private T config;
-    protected T WeaponConfig => config;
+    public T WeaponConfig => config;
     public override WeaponConfig Config => WeaponConfig;
 }

@@ -119,6 +119,7 @@ MonoBehaviour:
   controller: {fileID: 0}
   weaponWindow: {fileID: 6228171085741887982}
   weaponsListDisplay: {fileID: 2494665357723469705}
+  ammoDisplay: {fileID: 7742124316055009302}
 --- !u!1001 &2735575989050263743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -321,6 +322,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb6ad818c4f99ba459d978480a47bf6f, type: 3}
+--- !u!114 &7742124316055009302 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3148807195865142395, guid: cb6ad818c4f99ba459d978480a47bf6f, type: 3}
+  m_PrefabInstance: {fileID: 4666646747397958765}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 037f5b8416618fd4eb1676d82d6313cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8496474471077997420 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3831095426365540097, guid: cb6ad818c4f99ba459d978480a47bf6f, type: 3}

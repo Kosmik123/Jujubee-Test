@@ -4,6 +4,7 @@ public class RangedWeapon : Weapon<RangedWeaponConfig>
 {
     [SerializeField]
     private int remainingProjectiles;
+    public int RemainingProjectiles => remainingProjectiles;
 
     private void Awake()
     {
@@ -15,7 +16,7 @@ public class RangedWeapon : Weapon<RangedWeaponConfig>
         if (remainingProjectiles < 1)
             return;
 
-        Debug.Log($"Inflicted {Config.Damage} point of ranged damage");
+        Debug.Log($"Inflicted {Config.Damage} points of ranged damage");
         remainingProjectiles--;
     }
 }

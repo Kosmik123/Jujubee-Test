@@ -6,6 +6,7 @@ public class WeaponController : MonoBehaviour
 {
     public event Action<Weapon> OnWeaponChanged;
     public event Action<Weapon> OnWeaponAdded;
+    public event Action<Weapon> OnWeaponUsed;
 
     [SerializeField]
     private Transform weaponHolder;
@@ -46,7 +47,7 @@ public class WeaponController : MonoBehaviour
         if (weapons.Count == 1)
             CurrentWeapon.gameObject.SetActive(true);
 
-        OnWeaponAdded(weapon);
+        OnWeaponAdded?.Invoke(weapon);
     }
 
     private void UseWeapon()
@@ -56,6 +57,7 @@ public class WeaponController : MonoBehaviour
             return;
 
         CurrentWeapon.Use();
+        OnWeaponUsed?.Invoke(weapon);
     }
 
     private void ChangeWeapon()
