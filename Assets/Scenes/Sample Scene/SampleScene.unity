@@ -543,18 +543,6 @@ PrefabInstance:
       propertyPath: currentWeapon
       value: 
       objectReference: {fileID: 11400000, guid: 6667a14188798344996a66bc26eab592, type: 2}
-    - target: {fileID: 4130409717430366340, guid: 9f4f3bad1877dbc43b33057d35deb4d1, type: 3}
-      propertyPath: weapons.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4130409717430366340, guid: 9f4f3bad1877dbc43b33057d35deb4d1, type: 3}
-      propertyPath: weapons.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 6667a14188798344996a66bc26eab592, type: 2}
-    - target: {fileID: 4130409717430366340, guid: 9f4f3bad1877dbc43b33057d35deb4d1, type: 3}
-      propertyPath: weapons.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 1bd88a1f40c1f1c459e9f1b555b4a675, type: 2}
     - target: {fileID: 4811059863080556176, guid: 9f4f3bad1877dbc43b33057d35deb4d1, type: 3}
       propertyPath: currentWeapon
       value: 

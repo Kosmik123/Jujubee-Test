@@ -9,8 +9,8 @@ public class WeaponDisplay : MonoBehaviour
     [SerializeField]
     private Image image;
     
-    private WeaponConfig weapon;
-    public WeaponConfig Weapon
+    private Weapon weapon;
+    public Weapon Weapon
     {
         get => weapon; 
         set
@@ -20,8 +20,8 @@ public class WeaponDisplay : MonoBehaviour
             if (weapon == null)
                 return;
 
-            label.text = weapon.Name;
-            image.sprite = weapon.Icon;
+            label.text = weapon.Config.Name;
+            image.sprite = weapon.Config.Icon;
         }
     }
 

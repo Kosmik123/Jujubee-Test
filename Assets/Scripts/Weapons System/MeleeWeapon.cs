@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 
-public class MeleeWeapon : Weapon
+public class MeleeWeapon : Weapon<MeleeWeaponConfig>
 {
     public override void Use()
     {
-        Debug.Log("Used melee weapon");
+
+        Debug.Log($"Inflicted {Config.Damage} point of ranged damage");
     }
 }

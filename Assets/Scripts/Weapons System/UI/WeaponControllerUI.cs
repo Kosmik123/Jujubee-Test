@@ -34,12 +34,12 @@ public class WeaponControllerUI : MonoBehaviour
         controller.OnWeaponAdded += RefreshWeaponsList;
     }
 
-    private void RefreshWeaponsList(WeaponConfig weapon)
+    private void RefreshWeaponsList(Weapon weapon)
     {
         weaponsListDisplay.Refresh();
     }
 
-    private void RefreshDisplayedWeapon(WeaponConfig newWeapon)
+    private void RefreshDisplayedWeapon(Weapon newWeapon)
     {
         weaponWindow.Weapon = newWeapon;
     }

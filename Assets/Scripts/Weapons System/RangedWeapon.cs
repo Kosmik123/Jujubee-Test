@@ -1,9 +1,21 @@
 ﻿using UnityEngine;
 
-public class RangedWeapon : Weapon
+public class RangedWeapon : Weapon<RangedWeaponConfig>  
 {
+    [SerializeField]
+    private int remainingProjectiles;
+
+    private void Awake()
+    {
+        remainingProjectiles = WeaponConfig.MaxProjectilesCount;
+    }
+
     public override void Use()
     {
-        Debug.Log("Used ranged weapon");
+        if (remainingProjectiles < 1)
+            return;
+
+        Debug.Log($"Inflicted {Config.Damage} point of ranged damage");
+        remainingProjectiles--;
     }
 }

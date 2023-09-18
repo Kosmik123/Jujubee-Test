@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    public event Action<WeaponConfig> OnWeaponChanged;
-    public event Action<WeaponConfig> OnWeaponAdded;
+    public event Action<Weapon> OnWeaponChanged;
+    public event Action<Weapon> OnWeaponAdded;
 
     [SerializeField]
     private Transform weaponHolder;
 
     [SerializeField]
     private int currentWeaponIndex;
-    public WeaponConfig CurrentWeapon => (currentWeaponIndex < 0 || currentWeaponIndex >= weapons.Count) ? null : weapons[currentWeaponIndex];
+    public Weapon CurrentWeapon => (currentWeaponIndex < 0 || currentWeaponIndex >= weapons.Count) ? null : weapons[currentWeaponIndex];
 
     [SerializeField]
-    private List<WeaponConfig> weapons = new List<WeaponConfig>();
-    public IReadOnlyList<WeaponConfig> Weapons => weapons;
-
-    private readonly Dictionary<WeaponConfig, Weapon> weaponBehaviors = new Dictionary<WeaponConfig, Weapon>();
+    private List<Weapon> weapons = new List<Weapon>();
+    public IReadOnlyList<Weapon> Weapons => weapons;
 
     private void Awake()
     {
@@ -26,11 +24,10 @@ public class WeaponController : MonoBehaviour
         {
             var weaponBehavior = SpawnModel(weapon);
             weaponBehavior.gameObject.SetActive(false);
-            weaponBehaviors.Add(weapon, weaponBehavior);
         }
 
         if (CurrentWeapon != null)
-            weaponBehaviors[CurrentWeapon].gameObject.SetActive(true);
+            CurrentWeapon.gameObject.SetActive(true);
     }
 
     private void Update()
@@ -45,13 +42,9 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    public void AddWeapon(WeaponConfig weapon)
+    public void AddWeapon(Weapon weapon)
     {
-        if (weapons.Contains(weapon))
-            return;
-
         weapons.Add(weapon);
-        weaponBehaviors.Add(weapon, SpawnModel(weapon));
         OnWeaponAdded(weapon);
     }
 
@@ -61,23 +54,23 @@ public class WeaponController : MonoBehaviour
         if (weapon == null)
             return;
 
-        weaponBehaviors[weapon].Use();
+        CurrentWeapon.Use();
     }
 
     private void ChangeWeapon()
     {
         if (CurrentWeapon != null)
-            weaponBehaviors[CurrentWeapon].gameObject.SetActive(false);
+            CurrentWeapon.gameObject.SetActive(false);
 
         currentWeaponIndex++;
         currentWeaponIndex %= weapons.Count;
-        weaponBehaviors[CurrentWeapon].gameObject.SetActive(true);
+        CurrentWeapon.gameObject.SetActive(true);
         
         OnWeaponChanged?.Invoke(CurrentWeapon);
     }
 
-    public Weapon SpawnModel(WeaponConfig weapon)
+    public Weapon SpawnModel(Weapon weaponTemplate)
     {
-        return Instantiate(weapon.Model, weaponHolder);
+        return Instantiate(weaponTemplate, weaponHolder);
     }
 }
