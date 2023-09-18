@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    public event Action<Weapon> OnWeaponChanged;
-    public event Action<Weapon> OnWeaponAdded;
+    public event Action<WeaponConfig> OnWeaponChanged;
+    public event Action<WeaponConfig> OnWeaponAdded;
 
     [SerializeField]
     private Transform weaponHolder;
 
     [SerializeField]
     private int currentWeaponIndex;
-    public Weapon CurrentWeapon => (currentWeaponIndex < 0 || currentWeaponIndex >= weapons.Count) ? null : weapons[currentWeaponIndex];
+    public WeaponConfig CurrentWeapon => (currentWeaponIndex < 0 || currentWeaponIndex >= weapons.Count) ? null : weapons[currentWeaponIndex];
 
     [SerializeField]
-    private List<Weapon> weapons = new List<Weapon>();
-    public IReadOnlyList<Weapon> Weapons => weapons;
+    private List<WeaponConfig> weapons = new List<WeaponConfig>();
+    public IReadOnlyList<WeaponConfig> Weapons => weapons;
 
-    private readonly Dictionary<Weapon, GameObject> weaponObjects = new Dictionary<Weapon, GameObject>();
+    private readonly Dictionary<WeaponConfig, GameObject> weaponObjects = new Dictionary<WeaponConfig, GameObject>();
 
     private void Awake()
     {
@@ -45,7 +45,7 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    public void AddWeapon(Weapon weapon)
+    public void AddWeapon(WeaponConfig weapon)
     {
         if (weapons.Contains(weapon))
             return;
@@ -76,7 +76,7 @@ public class WeaponController : MonoBehaviour
         OnWeaponChanged?.Invoke(CurrentWeapon);
     }
 
-    public GameObject SpawnModel(Weapon weapon)
+    public GameObject SpawnModel(WeaponConfig weapon)
     {
         return Instantiate(weapon.Model, weaponHolder);
     }

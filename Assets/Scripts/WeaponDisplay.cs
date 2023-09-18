@@ -9,8 +9,8 @@ public class WeaponDisplay : MonoBehaviour
     [SerializeField]
     private Image image;
     
-    private Weapon weapon;
-    public Weapon Weapon
+    private WeaponConfig weapon;
+    public WeaponConfig Weapon
     {
         get => weapon; 
         set

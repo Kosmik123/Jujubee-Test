@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "Weapons/Ranged Weapon")]
-public class RangedWeapon : Weapon
+public class RangedWeaponConfig : WeaponConfig
 {
     [SerializeField]
     private float maxDistance;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Weapon : ScriptableObject
+public abstract class WeaponConfig : ScriptableObject
 {
     [SerializeField]
     private new string name;

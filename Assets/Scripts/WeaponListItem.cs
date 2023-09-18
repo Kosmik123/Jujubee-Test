@@ -6,7 +6,7 @@ public class WeaponListItem : MonoBehaviour
     [SerializeField]
     private Image image;
 
-    public void SetWeapon(Weapon weapon)
+    public void SetWeapon(WeaponConfig weapon)
     {
         image.sprite = weapon.Icon;
     }
