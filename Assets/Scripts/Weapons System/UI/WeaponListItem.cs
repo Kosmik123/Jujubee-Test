@@ -8,6 +8,10 @@ public class WeaponListItem : MonoBehaviour
 
     public void SetWeapon(Weapon weapon)
     {
+        gameObject.SetActive(weapon != null);
+        if (weapon == null)
+            return;
+            
         image.sprite = weapon.Config.Icon;
     }
 }
