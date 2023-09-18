@@ -18,19 +18,19 @@ public class WeaponController : MonoBehaviour
     private List<WeaponConfig> weapons = new List<WeaponConfig>();
     public IReadOnlyList<WeaponConfig> Weapons => weapons;
 
-    private readonly Dictionary<WeaponConfig, GameObject> weaponObjects = new Dictionary<WeaponConfig, GameObject>();
+    private readonly Dictionary<WeaponConfig, WeaponBehavior> weaponBehaviors = new Dictionary<WeaponConfig, WeaponBehavior>();
 
     private void Awake()
     {
         foreach (var weapon in weapons)
         {
-            var weaponObject = SpawnModel(weapon);
-            weaponObject.SetActive(false);
-            weaponObjects.Add(weapon, weaponObject);
+            var weaponBehavior = SpawnModel(weapon);
+            weaponBehavior.gameObject.SetActive(false);
+            weaponBehaviors.Add(weapon, weaponBehavior);
         }
 
         if (CurrentWeapon != null)
-            weaponObjects[CurrentWeapon].SetActive(true);
+            weaponBehaviors[CurrentWeapon].gameObject.SetActive(true);
     }
 
     private void Update()
@@ -51,7 +51,7 @@ public class WeaponController : MonoBehaviour
             return;
 
         weapons.Add(weapon);
-        weaponObjects.Add(weapon, SpawnModel(weapon));
+        weaponBehaviors.Add(weapon, SpawnModel(weapon));
         OnWeaponAdded(weapon);
     }
 
@@ -60,23 +60,23 @@ public class WeaponController : MonoBehaviour
         var weapon = CurrentWeapon;
         if (weapon == null)
             return;
- 
-        Debug.Log($"Used weapon {weapon.Name} and inflicted {weapon.Damage} damage");
+
+        weaponBehaviors[weapon].Use();
     }
 
     private void ChangeWeapon()
     {
         if (CurrentWeapon != null)
-            weaponObjects[CurrentWeapon].SetActive(false);
+            weaponBehaviors[CurrentWeapon].gameObject.SetActive(false);
 
         currentWeaponIndex++;
         currentWeaponIndex %= weapons.Count;
-        weaponObjects[CurrentWeapon].SetActive(true);
+        weaponBehaviors[CurrentWeapon].gameObject.SetActive(true);
         
         OnWeaponChanged?.Invoke(CurrentWeapon);
     }
 
-    public GameObject SpawnModel(WeaponConfig weapon)
+    public WeaponBehavior SpawnModel(WeaponConfig weapon)
     {
         return Instantiate(weapon.Model, weaponHolder);
     }

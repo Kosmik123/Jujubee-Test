@@ -15,6 +15,6 @@ public abstract class WeaponConfig : ScriptableObject
     public int Damage => damage;
 
     [SerializeField]
-    private GameObject model;
-    public GameObject Model => model;
+    private WeaponBehavior model;
+    public WeaponBehavior Model => model;
 }
