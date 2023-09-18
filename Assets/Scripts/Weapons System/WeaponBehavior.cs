@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 
-public class WeaponBehavior : MonoBehaviour
+public abstract class WeaponBehavior : MonoBehaviour
 {
-    public void Use()
-    {
-        Debug.Log("Weapon was used");
-    }
+    public abstract void Use();
+
 }
