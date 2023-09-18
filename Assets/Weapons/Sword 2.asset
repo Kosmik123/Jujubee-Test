@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 697798f8094b29e4a8a2048073c57d9c, type: 3}
-  m_Name: Gun 1
+  m_Script: {fileID: 11500000, guid: 37b4f4f174466874ab2e6663ad254de9, type: 3}
+  m_Name: Sword 2
   m_EditorClassIdentifier: 
-  name: Gun 1
-  icon: {fileID: 21300000, guid: c35fc1ce658b5174a8f33f04dbda2e80, type: 3}
-  damage: 4
-  maxDistance: 50
-  maxProjectilesCount: 25
-  projectileTemplate: {fileID: 0}
+  name: Knife
+  icon: {fileID: 21300000, guid: 94b0a50b90e88cc43adb97189e4c47b9, type: 3}
+  damage: 10
+  attackRange: 1

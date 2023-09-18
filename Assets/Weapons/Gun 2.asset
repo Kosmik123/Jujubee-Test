@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 697798f8094b29e4a8a2048073c57d9c, type: 3}
-  m_Name: Gun 1
+  m_Name: Gun 2
   m_EditorClassIdentifier: 
-  name: Gun 1
-  icon: {fileID: 21300000, guid: c35fc1ce658b5174a8f33f04dbda2e80, type: 3}
-  damage: 4
-  maxDistance: 50
-  maxProjectilesCount: 25
+  name: Crossbow
+  icon: {fileID: 21300000, guid: bb5142a58ea91e24d98f8cd578f875d9, type: 3}
+  damage: 6
+  maxDistance: 10
+  maxProjectilesCount: 10
   projectileTemplate: {fileID: 0}
