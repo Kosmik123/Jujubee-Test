@@ -410,6 +410,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 2515351899870376055, guid: 01a6d94ce1f5afe48a2b4347925514a4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119104725630667098, guid: 01a6d94ce1f5afe48a2b4347925514a4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119104725630667098, guid: 01a6d94ce1f5afe48a2b4347925514a4, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119104725630667098, guid: 01a6d94ce1f5afe48a2b4347925514a4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119104725630667098, guid: 01a6d94ce1f5afe48a2b4347925514a4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6244794064365407514, guid: 01a6d94ce1f5afe48a2b4347925514a4, type: 3}
       propertyPath: controller
       value: 
@@ -525,12 +545,16 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 6667a14188798344996a66bc26eab592, type: 2}
     - target: {fileID: 4130409717430366340, guid: 9f4f3bad1877dbc43b33057d35deb4d1, type: 3}
       propertyPath: weapons.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4130409717430366340, guid: 9f4f3bad1877dbc43b33057d35deb4d1, type: 3}
       propertyPath: weapons.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 6667a14188798344996a66bc26eab592, type: 2}
+    - target: {fileID: 4130409717430366340, guid: 9f4f3bad1877dbc43b33057d35deb4d1, type: 3}
+      propertyPath: weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1bd88a1f40c1f1c459e9f1b555b4a675, type: 2}
     - target: {fileID: 4811059863080556176, guid: 9f4f3bad1877dbc43b33057d35deb4d1, type: 3}
       propertyPath: currentWeapon
       value: 

@@ -13,6 +13,7 @@ public class WeaponController : MonoBehaviour
 
     [SerializeField]
     private List<Weapon> weapons = new List<Weapon>();
+    public IReadOnlyList<Weapon> Weapons => weapons;
 
     private void Update()
     {

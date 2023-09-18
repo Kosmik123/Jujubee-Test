@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class WeaponControllerUI : MonoBehaviour
 {
@@ -8,29 +9,44 @@ public class WeaponControllerUI : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField]
     private WeaponDisplay weaponWindow;
+    [SerializeField]
+    private WeaponsListDisplay weaponsListDisplay;
 
     private void Reset()
     {
         controller = FindObjectOfType<WeaponController>();
     }
 
+    private void Awake()
+    {
+        weaponsListDisplay.Init(controller);
+    }
+
     private void Start()
     {
-        Refresh(controller.CurrentWeapon);
+        RefreshDisplayedWeapon(controller.CurrentWeapon);
+        weaponsListDisplay.Refresh();
     }
 
     private void OnEnable()
     {
-        controller.OnWeaponChanged += Refresh;
+        controller.OnWeaponChanged += RefreshDisplayedWeapon;
+        controller.OnWeaponAdded += RefreshWeaponsList;
     }
 
-    private void Refresh(Weapon newWeapon)
+    private void RefreshWeaponsList(Weapon weapon)
+    {
+        weaponsListDisplay.Refresh();
+    }
+
+    private void RefreshDisplayedWeapon(Weapon newWeapon)
     {
         weaponWindow.Weapon = newWeapon;
     }
 
     private void OnDisable()
     {
-        controller.OnWeaponChanged -= Refresh;
+        controller.OnWeaponChanged -= RefreshDisplayedWeapon;
+        controller.OnWeaponAdded -= RefreshWeaponsList;
     }
 }
