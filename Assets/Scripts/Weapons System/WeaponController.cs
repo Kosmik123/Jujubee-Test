@@ -41,7 +41,8 @@ public class WeaponController : MonoBehaviour
 
     public void AddWeapon(Weapon weapon)
     {
-        weapons.Add(weapon);
+        var weaponInstance = SpawnModel(weapon);
+        weapons.Add(weaponInstance);
         if (weapons.Count == 1)
             CurrentWeapon.gameObject.SetActive(true);
 
