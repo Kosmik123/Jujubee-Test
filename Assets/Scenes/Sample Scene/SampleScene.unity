@@ -516,6 +516,8 @@ MonoBehaviour:
   weaponController: {fileID: 197452696466175389}
   weapons:
   - {fileID: 6319365623905770919, guid: 486636d24a656f64f937e44ae10f3701, type: 3}
+  - {fileID: 6319365623905770919, guid: 486636d24a656f64f937e44ae10f3701, type: 3}
+  - {fileID: 3953166553743390823, guid: 9cd09a43e87d4a5459247687298cb9ed, type: 3}
 --- !u!4 &1918161078
 Transform:
   m_ObjectHideFlags: 0
