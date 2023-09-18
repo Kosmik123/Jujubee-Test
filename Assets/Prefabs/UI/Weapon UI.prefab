@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2669786500418206759}
   - component: {fileID: 9101215822718137844}
   - component: {fileID: 2223739995456102967}
+  - component: {fileID: 8749381694570083737}
   m_Layer: 5
   m_Name: Weapon UI
   m_TagString: Untagged
@@ -103,6 +104,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8749381694570083737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5404754068954670535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74acf51bb92efe440b5ce72784d74778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  weaponWindow: {fileID: 6228171085741887982}
 --- !u!1001 &4666646747397958765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -441,6 +456,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f556706991ae4274e9ffc7486d894574, type: 3}
+--- !u!114 &6228171085741887982 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2882898059319605733, guid: f556706991ae4274e9ffc7486d894574, type: 3}
+  m_PrefabInstance: {fileID: 9109924530505738251}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61fa3570443d75041a898886abe318df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8864433912313582645 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 389631416486984766, guid: f556706991ae4274e9ffc7486d894574, type: 3}

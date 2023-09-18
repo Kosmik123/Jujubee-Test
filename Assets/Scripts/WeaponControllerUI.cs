@@ -5,9 +5,18 @@ public class WeaponControllerUI : MonoBehaviour
     [SerializeField]
     private WeaponController controller;
 
+    [Header("UI Elements")]
+    [SerializeField]
+    private WeaponDisplay weaponWindow;
+
     private void Reset()
     {
         controller = FindObjectOfType<WeaponController>();
+    }
+
+    private void Start()
+    {
+        Refresh(controller.CurrentWeapon);
     }
 
     private void OnEnable()
@@ -17,7 +26,7 @@ public class WeaponControllerUI : MonoBehaviour
 
     private void Refresh(Weapon newWeapon)
     {
-
+        weaponWindow.Weapon = newWeapon;
     }
 
     private void OnDisable()
