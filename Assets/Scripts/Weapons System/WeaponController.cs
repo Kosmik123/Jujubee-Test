@@ -21,10 +21,7 @@ public class WeaponController : MonoBehaviour
     private void Awake()
     {
         foreach (var weapon in weapons)
-        {
-            var weaponBehavior = SpawnModel(weapon);
-            weaponBehavior.gameObject.SetActive(false);
-        }
+            weapon.gameObject.SetActive(false);
 
         if (CurrentWeapon != null)
             CurrentWeapon.gameObject.SetActive(true);
@@ -45,6 +42,9 @@ public class WeaponController : MonoBehaviour
     public void AddWeapon(Weapon weapon)
     {
         weapons.Add(weapon);
+        if (weapons.Count == 1)
+            CurrentWeapon.gameObject.SetActive(true);
+
         OnWeaponAdded(weapon);
     }
 
