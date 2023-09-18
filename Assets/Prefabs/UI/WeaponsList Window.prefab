@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponsList Window
       objectReference: {fileID: 0}
+    - target: {fileID: 6403111362585532461, guid: eb4bb8b931ca4514c960b4e72bfb3072, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6942669913986202876, guid: eb4bb8b931ca4514c960b4e72bfb3072, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -97,6 +101,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4bb8b931ca4514c960b4e72bfb3072, type: 3}
+--- !u!114 &3415618564719731435 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6403111362585532461, guid: eb4bb8b931ca4514c960b4e72bfb3072, type: 3}
+  m_PrefabInstance: {fileID: 8627451196131834566}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9110346674045741307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9110346674045741307 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 708377061023846973, guid: eb4bb8b931ca4514c960b4e72bfb3072, type: 3}
@@ -115,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listItemTemplate: {fileID: 8067262490506107098, guid: faa7f6e51d456fc4ba979d4e8e468986, type: 3}
+  windowImage: {fileID: 3415618564719731435}
 --- !u!114 &2326464122740466041
 MonoBehaviour:
   m_ObjectHideFlags: 0

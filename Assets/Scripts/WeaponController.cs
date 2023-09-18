@@ -57,7 +57,11 @@ public class WeaponController : MonoBehaviour
 
     private void UseWeapon()
     {
-        var weapon = weapons[currentWeaponIndex];
+        var weapon = CurrentWeapon;
+        if (weapon == null)
+            return;
+ 
+        Debug.Log($"Used weapon {weapon.Name} and inflicted {weapon.Damage} damage");
     }
 
     private void ChangeWeapon()
