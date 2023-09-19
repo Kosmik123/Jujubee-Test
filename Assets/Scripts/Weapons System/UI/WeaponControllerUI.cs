@@ -38,7 +38,7 @@ public class WeaponControllerUI : MonoBehaviour
 
     private void RefreshWeaponsList(Weapon weapon)
     {
-        weaponsListDisplay.Refresh();
+        weaponsListDisplay.AddNewListItem(weapon);
     }
 
     private void HandleChangedWeapon(Weapon newWeapon)
