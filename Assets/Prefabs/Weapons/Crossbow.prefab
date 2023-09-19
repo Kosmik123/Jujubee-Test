@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5274245281841375317}
   - component: {fileID: 6319365623905770919}
+  - component: {fileID: 3911260786351977999}
   m_Layer: 0
   m_Name: Crossbow
   m_TagString: Untagged
@@ -47,8 +48,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: 96907744e561fcf45b60a9fe2a4bc71e, type: 2}
-  remainingProjectiles: 0
   projectilesShootingPoint: {fileID: 1614962098052831813}
+--- !u!114 &3911260786351977999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5515742427495632586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d60dce93c04ede04eac570ba279fcfce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 6319365623905770919}
+  animation: {fileID: 3034983286050855525}
 --- !u!1 &5795189153109150036
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,6 +104,10 @@ PrefabInstance:
     - target: {fileID: 167016, guid: 1dcc6f17f2ad24b98a7ef082c8c454a9, type: 3}
       propertyPath: m_Name
       value: Crossbow
+      objectReference: {fileID: 0}
+    - target: {fileID: 173992, guid: 1dcc6f17f2ad24b98a7ef082c8c454a9, type: 3}
+      propertyPath: m_Name
+      value: Arrow
       objectReference: {fileID: 0}
     - target: {fileID: 421366, guid: 1dcc6f17f2ad24b98a7ef082c8c454a9, type: 3}
       propertyPath: m_RootOrder
@@ -151,6 +169,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 439570, guid: 1dcc6f17f2ad24b98a7ef082c8c454a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.043
+      objectReference: {fileID: 0}
+    - target: {fileID: 439570, guid: 1dcc6f17f2ad24b98a7ef082c8c454a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.000000005587935
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dcc6f17f2ad24b98a7ef082c8c454a9, type: 3}
 --- !u!4 &1599482291658923221 stripped
@@ -158,3 +184,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 421366, guid: 1dcc6f17f2ad24b98a7ef082c8c454a9, type: 3}
   m_PrefabInstance: {fileID: 1599482291659075875}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1599482291659177291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 167016, guid: 1dcc6f17f2ad24b98a7ef082c8c454a9, type: 3}
+  m_PrefabInstance: {fileID: 1599482291659075875}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &3034983286050855525
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599482291659177291}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 2fd85978285720b4fbb09721732e284e, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 2fd85978285720b4fbb09721732e284e, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
