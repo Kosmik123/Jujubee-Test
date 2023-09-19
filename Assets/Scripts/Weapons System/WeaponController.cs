@@ -40,10 +40,10 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    public void AddWeapon(Weapon weapon)
+    public void AddWeapon(Weapon weaponTemplate)
     {
-        var weaponInstance = SpawnModel(weapon);
-        weapons.Add(weaponInstance);
+        var weapon = SpawnModel(weaponTemplate);
+        weapons.Add(weapon);
         if (weapons.Count == 1)
             CurrentWeapon.gameObject.SetActive(true);
 
