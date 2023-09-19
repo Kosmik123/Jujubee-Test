@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class WeaponsListDisplay : MonoBehaviour
 {
     [SerializeField]
-    private WeaponListItem listItemTemplate;
+    private WeaponDisplay listItemTemplate;
     [SerializeField]
     private Image windowImage;
     [SerializeField]
@@ -16,7 +16,7 @@ public class WeaponsListDisplay : MonoBehaviour
 
     private WeaponController weaponController;
 
-    private readonly Dictionary<Weapon, WeaponListItem> listItemsByWeapon = new Dictionary<Weapon, WeaponListItem>();
+    private readonly Dictionary<Weapon, WeaponDisplay> listItemsByWeapon = new Dictionary<Weapon, WeaponDisplay>();
 
     public void Init(WeaponController weaponController)
     {
@@ -59,7 +59,7 @@ public class WeaponsListDisplay : MonoBehaviour
         activeItemCursor.transform.position = position;
     }
 
-    private WeaponListItem SpawnListItem()
+    private WeaponDisplay SpawnListItem()
     {
         var weaponListItem = Instantiate(listItemTemplate, itemsContainer);
         return weaponListItem;

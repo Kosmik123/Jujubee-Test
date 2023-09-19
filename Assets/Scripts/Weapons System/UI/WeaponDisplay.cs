@@ -1,32 +1,20 @@
-﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class WeaponDisplay : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI label;
-    [SerializeField]
-    private Image image;
-    
-    private Weapon weapon;
-    public Weapon Weapon
-    {
-        get => weapon; 
-        set
-        {
-            weapon = value;
-            gameObject.SetActive(weapon != null);
-            if (weapon == null)
-                return;
+    protected Image image;
 
-            label.text = weapon.Config.Name;
-            image.sprite = weapon.Config.Icon;
-        }
-    }
+    protected Weapon weapon;
 
-    private void Reset()
+    public virtual void SetWeapon(Weapon weapon)
     {
-        label = GetComponentInChildren<TextMeshProUGUI>(); 
+        this.weapon = weapon;
+        gameObject.SetActive(weapon != null);
+        if (weapon == null)
+            return;
+            
+        image.sprite = weapon.Config.Icon;
     }
 }

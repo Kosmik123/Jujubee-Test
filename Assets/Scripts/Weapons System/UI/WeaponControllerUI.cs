@@ -7,7 +7,7 @@ public class WeaponControllerUI : MonoBehaviour
 
     [Header("UI Elements")]
     [SerializeField]
-    private WeaponDisplay weaponWindow;
+    private WeaponDisplayWithLabel weaponWindow;
     [SerializeField]
     private WeaponsListDisplay weaponsListDisplay;
     [SerializeField]
@@ -43,7 +43,7 @@ public class WeaponControllerUI : MonoBehaviour
 
     private void HandleChangedWeapon(Weapon newWeapon)
     {
-        weaponWindow.Weapon = newWeapon;
+        weaponWindow.SetWeapon(newWeapon);
         if (newWeapon is RangedWeapon)
         {
             ammoDisplay.gameObject.SetActive(true);
