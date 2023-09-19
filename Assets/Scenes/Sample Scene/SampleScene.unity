@@ -635,6 +635,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1918161078}
   - component: {fileID: 1918161077}
+  - component: {fileID: 1918161079}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -657,9 +658,6 @@ MonoBehaviour:
   weaponController: {fileID: 197452696466175389}
   weapons:
   - {fileID: 3953166553743390823, guid: 59fb55560e59d9948b27f4a49119f66d, type: 3}
-  - {fileID: 6319365623905770919, guid: 486636d24a656f64f937e44ae10f3701, type: 3}
-  - {fileID: 3953166553743390823, guid: 9cd09a43e87d4a5459247687298cb9ed, type: 3}
-  - {fileID: 6319365623905770919, guid: dd5891b905afa1442a76442a7081a0bc, type: 3}
 --- !u!4 &1918161078
 Transform:
   m_ObjectHideFlags: 0
@@ -675,6 +673,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1918161079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918161076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2e33bb4688b314984283831304d403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &197452696466175388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -734,6 +744,10 @@ PrefabInstance:
       propertyPath: currentWeapon
       value: 
       objectReference: {fileID: 11400000, guid: 6667a14188798344996a66bc26eab592, type: 2}
+    - target: {fileID: 4130409717430366340, guid: 9f4f3bad1877dbc43b33057d35deb4d1, type: 3}
+      propertyPath: weaponsSpawner
+      value: 
+      objectReference: {fileID: 1918161079}
     - target: {fileID: 4811059863080556176, guid: 9f4f3bad1877dbc43b33057d35deb4d1, type: 3}
       propertyPath: currentWeapon
       value: 

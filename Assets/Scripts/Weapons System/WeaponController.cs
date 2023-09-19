@@ -9,6 +9,9 @@ public class WeaponController : MonoBehaviour
     public event Action<Weapon> OnWeaponUsed;
 
     [SerializeField]
+    private WeaponsSpawner weaponsSpawner;
+
+    [SerializeField]
     private Transform weaponHolder;
 
     [SerializeField]
@@ -42,7 +45,9 @@ public class WeaponController : MonoBehaviour
 
     public void AddWeapon(Weapon weaponTemplate)
     {
-        var weapon = SpawnModel(weaponTemplate);
+        var weapon = weaponsSpawner.Spawn(weaponTemplate);
+        weapon.transform.parent = weaponHolder;
+        weapon.transform.localPosition = Vector3.zero;
         weapons.Add(weapon);
         if (weapons.Count == 1)
             ChangeWeapon(0);
@@ -75,12 +80,5 @@ public class WeaponController : MonoBehaviour
         CurrentWeapon.gameObject.SetActive(true);
 
         OnWeaponChanged?.Invoke(CurrentWeapon);
-    }
-
-    public Weapon SpawnModel(Weapon weaponTemplate)
-    {
-        var weapon = Instantiate(weaponTemplate, weaponHolder);
-        weapon.gameObject.SetActive(false);
-        return weapon;
     }
 }
