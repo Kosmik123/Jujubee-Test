@@ -45,7 +45,7 @@ public class WeaponController : MonoBehaviour
         var weapon = SpawnModel(weaponTemplate);
         weapons.Add(weapon);
         if (weapons.Count == 1)
-            CurrentWeapon.gameObject.SetActive(true);
+            ChangeWeapon(0);
 
         OnWeaponAdded?.Invoke(weapon);
     }
@@ -62,13 +62,18 @@ public class WeaponController : MonoBehaviour
 
     private void ChangeWeapon()
     {
+        int newIndex = (currentWeaponIndex + 1) % weapons.Count;
+        ChangeWeapon(newIndex);
+    }
+
+    private void ChangeWeapon(int index)
+    {
         if (CurrentWeapon != null)
             CurrentWeapon.gameObject.SetActive(false);
 
-        currentWeaponIndex++;
-        currentWeaponIndex %= weapons.Count;
+        currentWeaponIndex = index;
         CurrentWeapon.gameObject.SetActive(true);
-        
+
         OnWeaponChanged?.Invoke(CurrentWeapon);
     }
 
