@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: 6667a14188798344996a66bc26eab592, type: 2}
+  attackPoint: {fileID: 9098197968177676239}
 --- !u!111 &8615384010874885488
 Animation:
   m_ObjectHideFlags: 0

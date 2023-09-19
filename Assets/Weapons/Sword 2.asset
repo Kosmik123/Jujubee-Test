@@ -16,3 +16,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 94b0a50b90e88cc43adb97189e4c47b9, type: 3}
   damage: 10
   attackRange: 1
+  attackedLayers:
+    serializedVersion: 2
+    m_Bits: 1
