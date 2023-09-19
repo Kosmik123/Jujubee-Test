@@ -13,14 +13,16 @@ public class RangedWeapon : Weapon<RangedWeaponConfig>
         remainingProjectiles = WeaponConfig.MaxProjectilesCount;
     }
 
+    public ProjectilesSpawner ProjectilesSpawner { get; set; }
+
     public override void Use()
     {
         if (remainingProjectiles < 1)
             return;
 
-
-        var projectile = Instantiate(WeaponConfig.ProjectileTemplate,
-            projectilesShootingPoint.position, projectilesShootingPoint.rotation);
+        var projectile = ProjectilesSpawner.SpawnProjectile(
+            WeaponConfig.ProjectileTemplate,
+            projectilesShootingPoint);
         projectile.OnMaxDistanceTraveled += Projectile_OnMaxDistanceTraveled;
         projectile.Shoot();
 
