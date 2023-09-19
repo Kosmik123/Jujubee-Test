@@ -16,4 +16,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: bb5142a58ea91e24d98f8cd578f875d9, type: 3}
   damage: 6
   maxProjectilesCount: 10
-  projectileTemplate: {fileID: 8818352235575184860, guid: 5e7587c3a1ec3844f8d34e8284f1d227, type: 3}
+  projectileTemplate: {fileID: 2876648176089017286, guid: 4c987e1f124005948bde3a2339d7b13a, type: 3}
