@@ -15,17 +15,17 @@ public class RangedWeapon : Weapon<RangedWeaponConfig>
 
     public ProjectilesSpawner ProjectilesSpawner { get; set; }
 
-    protected override void DoUse()
+    public override void Use()
     {
         if (remainingProjectiles < 1)
             return;
 
+        remainingProjectiles--;
         var projectile = ProjectilesSpawner.SpawnProjectile(
             WeaponConfig.ProjectileTemplate,
             projectilesShootingPoint);
         projectile.Shoot();
 
-        //Debug.Log($"Inflicted {Config.Damage} points of ranged damage");
-        remainingProjectiles--;
+        CallUseEvent();
     }
 }

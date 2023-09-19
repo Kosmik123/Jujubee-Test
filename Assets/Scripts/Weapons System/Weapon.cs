@@ -5,14 +5,13 @@ public abstract class Weapon : MonoBehaviour
     public event System.Action OnUsed;
 
     public abstract WeaponConfig Config { get; }
-    
-    public void Use()
-    {
-        DoUse();
-        OnUsed?.Invoke();
-    }
 
-    protected abstract void DoUse();
+    public abstract void Use();
+
+    protected void CallUseEvent()
+    {
+        OnUsed?.Invoke();   
+    }
 }
 
 public abstract class Weapon<T> : Weapon where T : WeaponConfig
