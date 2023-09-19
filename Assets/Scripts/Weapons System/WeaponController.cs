@@ -9,9 +9,6 @@ public class WeaponController : MonoBehaviour
     public event Action<Weapon> OnWeaponUsed;
 
     [SerializeField]
-    private WeaponsSpawner weaponsSpawner;
-
-    [SerializeField]
     private Transform weaponHolder;
 
     [SerializeField]
@@ -43,16 +40,16 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    public void AddWeapon(Weapon weaponTemplate)
+    public void AddWeapon(Weapon weaponInstance)
     {
-        var weapon = weaponsSpawner.Spawn(weaponTemplate);
-        weapon.transform.parent = weaponHolder;
-        weapon.transform.localPosition = Vector3.zero;
-        weapons.Add(weapon);
+        weapons.Add(weaponInstance);
+        weaponInstance.transform.parent = weaponHolder;
+        weaponInstance.transform.localPosition = Vector3.zero;
+        weaponInstance.transform.localRotation = Quaternion.identity;
         if (weapons.Count == 1)
             ChangeWeapon(0);
 
-        OnWeaponAdded?.Invoke(weapon);
+        OnWeaponAdded?.Invoke(weaponInstance);
     }
 
     private void UseWeapon()

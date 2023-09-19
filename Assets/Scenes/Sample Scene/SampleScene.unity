@@ -656,8 +656,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponController: {fileID: 197452696466175389}
+  weaponsSpawner: {fileID: 1918161079}
   weapons:
   - {fileID: 3953166553743390823, guid: 59fb55560e59d9948b27f4a49119f66d, type: 3}
+  - {fileID: 6319365623905770919, guid: 486636d24a656f64f937e44ae10f3701, type: 3}
 --- !u!4 &1918161078
 Transform:
   m_ObjectHideFlags: 0

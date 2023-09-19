@@ -5,6 +5,8 @@ public class InitialWeaponsSetter : MonoBehaviour
 {
     [SerializeField]
     private WeaponController weaponController;
+    [SerializeField]
+    private WeaponsSpawner weaponsSpawner;
 
     [SerializeField]
     private List<Weapon> weapons = new List<Weapon>();
@@ -12,6 +14,9 @@ public class InitialWeaponsSetter : MonoBehaviour
     private void Start()
     {
         foreach (var weapon in weapons)
-            weaponController.AddWeapon(weapon);
+        {
+            var weaponInstance = weaponsSpawner.Spawn(weapon);
+            weaponController.AddWeapon(weaponInstance);
+        }
     }
 }
