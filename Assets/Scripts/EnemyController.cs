@@ -13,18 +13,19 @@ public class EnemyController : MonoBehaviour
     {
         LookAtTarget();
 
-        if ((transform.position - target.position).sqrMagnitude > stopDistance * stopDistance)
+        Vector3 direction = (target.position - transform.position);
+        if (direction.sqrMagnitude > stopDistance * stopDistance)
         {
-            var motion = moveSpeed * Time.deltaTime * Vector3.forward;
-            transform.Translate(motion);
+            var motion = moveSpeed * Time.deltaTime * direction.normalized;
+            transform.Translate(motion, Space.World);
         }
     }
 
     private void LookAtTarget()
     {
-        var startPosition = GetHorizontalPosition(transform);
+        var position = GetHorizontalPosition(transform);
         var targetPosition = GetHorizontalPosition(target);
-        var direction = targetPosition - startPosition;
+        var direction = targetPosition - position;
 
         transform.forward = direction;
     }
