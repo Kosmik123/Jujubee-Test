@@ -2,9 +2,11 @@
 
 public class RangedWeapon : Weapon<RangedWeaponConfig>  
 {
-    [SerializeField]
     private int remainingProjectiles;
     public int RemainingProjectiles => remainingProjectiles;
+
+    [SerializeField]
+    private Transform projectilesShootingPoint;
 
     private void Awake()
     {
@@ -16,7 +18,19 @@ public class RangedWeapon : Weapon<RangedWeaponConfig>
         if (remainingProjectiles < 1)
             return;
 
-        Debug.Log($"Inflicted {Config.Damage} points of ranged damage");
+
+        var projectile = Instantiate(WeaponConfig.ProjectileTemplate,
+            projectilesShootingPoint.position, projectilesShootingPoint.rotation);
+        projectile.OnMaxDistanceTraveled += Projectile_OnMaxDistanceTraveled;
+        projectile.Shoot();
+
+        //Debug.Log($"Inflicted {Config.Damage} points of ranged damage");
         remainingProjectiles--;
+    }
+
+    private void Projectile_OnMaxDistanceTraveled(Projectile projectile)
+    {
+        projectile.OnMaxDistanceTraveled -= Projectile_OnMaxDistanceTraveled;
+        Destroy(projectile.gameObject);
     }
 }

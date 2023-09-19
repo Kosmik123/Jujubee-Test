@@ -15,6 +15,5 @@ MonoBehaviour:
   name: Crossbow
   icon: {fileID: 21300000, guid: bb5142a58ea91e24d98f8cd578f875d9, type: 3}
   damage: 6
-  maxDistance: 10
   maxProjectilesCount: 10
-  projectileTemplate: {fileID: 0}
+  projectileTemplate: {fileID: 8818352235575184860, guid: 5e7587c3a1ec3844f8d34e8284f1d227, type: 3}

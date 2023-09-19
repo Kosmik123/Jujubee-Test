@@ -1,10 +1,5 @@
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
-{
-
-}
-
 public class ProjectilesSpawner : MonoBehaviour
 {
     [SerializeField]
