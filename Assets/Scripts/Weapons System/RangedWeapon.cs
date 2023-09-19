@@ -23,16 +23,9 @@ public class RangedWeapon : Weapon<RangedWeaponConfig>
         var projectile = ProjectilesSpawner.SpawnProjectile(
             WeaponConfig.ProjectileTemplate,
             projectilesShootingPoint);
-        projectile.OnMaxDistanceTraveled += Projectile_OnMaxDistanceTraveled;
         projectile.Shoot();
 
         //Debug.Log($"Inflicted {Config.Damage} points of ranged damage");
         remainingProjectiles--;
-    }
-
-    private void Projectile_OnMaxDistanceTraveled(Projectile projectile)
-    {
-        projectile.OnMaxDistanceTraveled -= Projectile_OnMaxDistanceTraveled;
-        Destroy(projectile.gameObject);
     }
 }
