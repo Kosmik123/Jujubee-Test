@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,8 @@ public class WeaponsListDisplay : MonoBehaviour
     private Image windowImage;
     [SerializeField]
     private Transform itemsContainer;
+    [SerializeField]
+    private Image activeItemCursor;
 
     private WeaponController weaponController;
 
@@ -36,8 +39,24 @@ public class WeaponsListDisplay : MonoBehaviour
     public void Refresh()
     {
         bool isVisible = weaponController.Weapons.Count > 0;
+        activeItemCursor.enabled = isVisible;
         windowImage.enabled = isVisible;
+        UpdateCursorPosition();
+    }
 
+    public void UpdateCursorPosition()
+    {
+        if (weaponController.CurrentWeapon == null) 
+            return;
+
+        StartCoroutine(SetCursorPositionAfterLayoutRebuiltCo());
+    }
+
+    private IEnumerator SetCursorPositionAfterLayoutRebuiltCo()
+    {
+        yield return null;
+        var position = listItemsByWeapon[weaponController.CurrentWeapon].transform.position;
+        activeItemCursor.transform.position = position;
     }
 
     private WeaponListItem SpawnListItem()

@@ -32,11 +32,11 @@ public class WeaponControllerUI : MonoBehaviour
     private void OnEnable()
     {
         controller.OnWeaponChanged += HandleChangedWeapon;
-        controller.OnWeaponAdded += RefreshWeaponsList;
+        controller.OnWeaponAdded += HandleNewWeapon;
         controller.OnWeaponUsed += Controller_OnWeaponUsed;
     }
 
-    private void RefreshWeaponsList(Weapon weapon)
+    private void HandleNewWeapon(Weapon weapon)
     {
         weaponsListDisplay.AddNewListItem(weapon);
     }
@@ -53,6 +53,7 @@ public class WeaponControllerUI : MonoBehaviour
         {
             ammoDisplay.gameObject.SetActive(false);
         }
+        weaponsListDisplay.UpdateCursorPosition();
     }
 
     private void Controller_OnWeaponUsed(Weapon weapon)
@@ -63,7 +64,7 @@ public class WeaponControllerUI : MonoBehaviour
     private void OnDisable()
     {
         controller.OnWeaponChanged -= HandleChangedWeapon;
-        controller.OnWeaponAdded -= RefreshWeaponsList;
+        controller.OnWeaponAdded -= HandleNewWeapon;
         controller.OnWeaponUsed -= Controller_OnWeaponUsed;
     }
 }
