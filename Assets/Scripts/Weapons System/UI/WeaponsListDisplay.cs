@@ -30,7 +30,7 @@ public class WeaponsListDisplay : MonoBehaviour
             return;
 
         var listItem = SpawnListItem();
-        listItem.SetWeapon(weapon);
+        listItem.Weapon = weapon;
         listItemsByWeapon.Add(weapon, listItem);
         Refresh();
     }

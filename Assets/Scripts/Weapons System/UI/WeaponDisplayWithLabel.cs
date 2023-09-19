@@ -6,11 +6,10 @@ public class WeaponDisplayWithLabel : WeaponDisplay
     [SerializeField]
     private TextMeshProUGUI label;
 
-    public override void SetWeapon(Weapon weapon)
+    protected override void FillUIElements()
     {
-        base.SetWeapon(weapon);
-        if (weapon != null)
-            label.text = weapon.Config.Name;
+        base.FillUIElements();
+        label.text = weapon.Config.Name;
     }
 
     private void Reset()

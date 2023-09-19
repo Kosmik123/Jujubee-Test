@@ -7,14 +7,20 @@ public class WeaponDisplay : MonoBehaviour
     protected Image image;
 
     protected Weapon weapon;
-
-    public virtual void SetWeapon(Weapon weapon)
+    public Weapon Weapon
     {
-        this.weapon = weapon;
-        gameObject.SetActive(weapon != null);
-        if (weapon == null)
-            return;
-            
+        get => weapon;
+        set
+        {
+            weapon = value;
+            gameObject.SetActive(weapon != null);
+            if (weapon != null) 
+                FillUIElements();
+        }
+    }
+
+    protected virtual void FillUIElements()
+    {
         image.sprite = weapon.Config.Icon;
     }
 }

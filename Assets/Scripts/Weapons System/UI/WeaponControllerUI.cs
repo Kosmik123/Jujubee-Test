@@ -43,7 +43,7 @@ public class WeaponControllerUI : MonoBehaviour
 
     private void HandleChangedWeapon(Weapon newWeapon)
     {
-        weaponWindow.SetWeapon(newWeapon);
+        weaponWindow.Weapon = newWeapon;
         if (newWeapon is RangedWeapon)
         {
             ammoDisplay.gameObject.SetActive(true);
