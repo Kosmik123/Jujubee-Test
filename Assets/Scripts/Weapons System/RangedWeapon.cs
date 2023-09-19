@@ -15,7 +15,7 @@ public class RangedWeapon : Weapon<RangedWeaponConfig>
 
     public ProjectilesSpawner ProjectilesSpawner { get; set; }
 
-    public override void Use()
+    protected override void DoUse()
     {
         if (remainingProjectiles < 1)
             return;
