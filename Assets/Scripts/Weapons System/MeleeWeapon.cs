@@ -1,12 +1,31 @@
-﻿using System.Xml.Schema;
+﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class MeleeWeapon : Weapon<MeleeWeaponConfig>
 {
     [SerializeField]
     private Transform attackPoint;
 
+    [SerializeField]
+    private float attackDelay;
+    public float AttackDelay
+    {
+        get => attackDelay;
+        set
+        {
+            attackDelay = value;
+            wait = new WaitForSeconds(attackDelay);
+        }
+    }
+
     private readonly Collider[] hitColliders = new Collider[5];
+    private WaitForSeconds wait;
+
+    private void Awake()
+    {
+        wait = new WaitForSeconds(attackDelay);
+    }
 
     private void Reset()
     {
@@ -15,16 +34,27 @@ public class MeleeWeapon : Weapon<MeleeWeaponConfig>
 
     public override void Use()
     {
-        Debug.Log($"Inflicted {Config.Damage} points of melee damage");
-
+        StopAllCoroutines();
         var endPoint = attackPoint.position + attackPoint.forward * WeaponConfig.AttackRange;
         int hitCount = Physics.OverlapCapsuleNonAlloc(attackPoint.position, endPoint, 0.5f, hitColliders, WeaponConfig.AttackedLayers);
         for (int i = 0; i < hitCount; i++)
         {
             var enemy = hitColliders[i].GetComponentInParent<DamagableObject>();
             if (enemy != null)
-                enemy.Damage(Config.Damage);
+                StartCoroutine(AttackAfterDelayCo(enemy));
         }
         CallUseEvent();
+    }
+
+    private IEnumerator AttackAfterDelayCo(DamagableObject enemy)
+    {
+        yield return wait;
+        Debug.Log($"Inflicted {Config.Damage} points of melee damage");
+        enemy.Damage(Config.Damage);
+    }
+
+    private void OnValidate()
+    {
+        AttackDelay = AttackDelay;
     }
 }

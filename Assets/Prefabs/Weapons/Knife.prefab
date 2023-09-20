@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: 4290ea1855fa9f1449fce08465ebde33, type: 2}
   attackPoint: {fileID: 9098197968177676239}
+  attackDelay: 0.1
 --- !u!111 &5642648303782351848
 Animation:
   m_ObjectHideFlags: 0
