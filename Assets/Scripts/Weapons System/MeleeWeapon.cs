@@ -21,9 +21,9 @@ public class MeleeWeapon : Weapon<MeleeWeaponConfig>
         int hitCount = Physics.OverlapCapsuleNonAlloc(attackPoint.position, endPoint, 0.5f, hitColliders, WeaponConfig.AttackedLayers);
         for (int i = 0; i < hitCount; i++)
         {
-            var enemy = hitColliders[i].GetComponentInParent<EnemyController>();
+            var enemy = hitColliders[i].GetComponentInParent<DamagableObject>();
             if (enemy != null)
-                Destroy(enemy.gameObject, 0.5f);
+                enemy.Damage(Config.Damage);
         }
         CallUseEvent();
     }
