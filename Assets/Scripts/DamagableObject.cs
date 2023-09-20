@@ -2,6 +2,8 @@
 
 public class DamagableObject : MonoBehaviour
 {
+    public event System.Action OnDied;
+
     [SerializeField]
     private int maxHealth;
     [SerializeField]
@@ -9,13 +11,18 @@ public class DamagableObject : MonoBehaviour
 
     private void Start()
     {
-        currentHealth = maxHealth;    
+        FullHeal();
     }
 
     public void Damage(int damage)
     {
         currentHealth -= damage;
         if (currentHealth < 0)
-            Destroy(gameObject);
+            OnDied?.Invoke();
+    }
+
+    public void FullHeal()
+    {
+        currentHealth = maxHealth;
     }
 }

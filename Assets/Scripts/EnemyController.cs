@@ -2,12 +2,39 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public event System.Action<DamagableObject> OnDied;
+
+    [SerializeField]
+    private DamagableObject damagableObject;
+    public DamagableObject DamagableObject => damagableObject;
+
     [SerializeField]
     private float moveSpeed;
     [SerializeField]
     private Transform target;
+    public Transform Target 
+    {
+        get => target; 
+        set => target = value; 
+    }
+
     [SerializeField]
     private float stopDistance;
+
+    private void Reset()
+    {
+        damagableObject = GetComponent<DamagableObject>();    
+    }
+
+    private void OnEnable()
+    {
+        damagableObject.OnDied += CallDiedEvent;    
+    }
+
+    private void CallDiedEvent()
+    {
+        OnDied?.Invoke(damagableObject);
+    }
 
     private void Update()
     {
@@ -35,5 +62,10 @@ public class EnemyController : MonoBehaviour
         Vector3 horizontalPosition = transform.position;
         horizontalPosition.y = 0;
         return horizontalPosition;
+    }
+
+    private void OnDisable()
+    {
+        damagableObject.OnDied -= CallDiedEvent;
     }
 }

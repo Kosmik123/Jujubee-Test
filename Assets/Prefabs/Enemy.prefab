@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22cb0fb75ab503f40a7748470b23e487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagableObject: {fileID: 5595327707132218264}
   moveSpeed: 1
   target: {fileID: 0}
   stopDistance: 1
