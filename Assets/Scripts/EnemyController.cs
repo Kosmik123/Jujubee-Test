@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public event System.Action<DamagableObject> OnDied;
+    public event System.Action<DamagableObject, int> OnDamaged;
 
     [SerializeField]
     private DamagableObject damagableObject;
@@ -28,7 +29,14 @@ public class EnemyController : MonoBehaviour
 
     private void OnEnable()
     {
-        damagableObject.OnDied += CallDiedEvent;    
+        damagableObject.OnDied += CallDiedEvent;
+        damagableObject.OnHealthChanged += CallDamagedEvent;
+    }
+
+    private void CallDamagedEvent(int healthChange)
+    {
+        if (healthChange < 0)
+            OnDamaged?.Invoke(damagableObject, healthChange);
     }
 
     private void CallDiedEvent()
@@ -67,5 +75,6 @@ public class EnemyController : MonoBehaviour
     private void OnDisable()
     {
         damagableObject.OnDied -= CallDiedEvent;
+        damagableObject.OnHealthChanged -= CallDamagedEvent;
     }
 }

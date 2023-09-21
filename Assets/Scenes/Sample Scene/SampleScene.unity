@@ -215,7 +215,7 @@ Transform:
   m_GameObject: {fileID: 309179132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.03808117, y: 0, z: -0.037963867}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalScale: {x: 5, y: 1, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -638,6 +638,7 @@ GameObject:
   - component: {fileID: 1918161079}
   - component: {fileID: 1918161080}
   - component: {fileID: 1918161081}
+  - component: {fileID: 1918161082}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -718,8 +719,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyTemplate: {fileID: 478689569051236366, guid: 05838e2f8d683444cb1b30d146f5ad04, type: 3}
   enemies: []
-  spawnDistance: 10
+  spawnDistance: 20
   player: {fileID: 197452696466175390}
+--- !u!114 &1918161082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918161076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9606cf6817a6cbf4b8e4bd55f6bd0c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesManager: {fileID: 1918161081}
+  popupTemplate: {fileID: 251037331529924827, guid: d935b2c7e451bcb4f834a70ad6f3f11f, type: 3}
 --- !u!1001 &197452696466175388
 PrefabInstance:
   m_ObjectHideFlags: 0

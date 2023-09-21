@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Xml.Schema;
 using UnityEngine;
 
 public class EnemiesManager : MonoBehaviour
 {
+    public event System.Action<DamagableObject, int> OnEnemyDamaged;
+
     [SerializeField]
     private EnemyController enemyTemplate;
     [SerializeField]
@@ -24,13 +25,20 @@ public class EnemiesManager : MonoBehaviour
         var enemy = Instantiate(enemyTemplate, spawnPosition, Quaternion.identity, transform);
         enemy.Target = player;  
         enemy.OnDied += Enemy_OnDied;
+        enemy.OnDamaged += Enemy_OnDamaged;
         enemies.Add(enemy);
+    }
+
+    private void Enemy_OnDamaged(DamagableObject enemy, int damage)
+    {
+        OnEnemyDamaged?.Invoke(enemy, damage); 
     }
 
     private Vector3 GetSpawnPosition()
     {
         float angle = Random.Range(-180, 180);
-        Vector3 offset = Quaternion.AngleAxis(angle, Vector3.up) * Vector3.forward * Random.Range(spawnDistance - 1, spawnDistance + 1);
+        float distance = spawnDistance * Random.Range(0.9f, 1.1f);
+        Vector3 offset = Quaternion.AngleAxis(angle, Vector3.up) * Vector3.forward * distance;
         Vector3 spawnPosition = transform.position + offset;
         return spawnPosition;
     }
@@ -46,6 +54,9 @@ public class EnemiesManager : MonoBehaviour
     private void OnDestroy()
     {
         foreach (var enemy in enemies)
+        {
             enemy.OnDied -= Enemy_OnDied;
+            enemy.OnDamaged -= Enemy_OnDamaged;
+        }
     }
 }
