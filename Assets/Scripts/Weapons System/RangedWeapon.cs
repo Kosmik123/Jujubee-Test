@@ -24,7 +24,7 @@ public class RangedWeapon : Weapon<RangedWeaponConfig>
         var projectile = ProjectilesSpawner.SpawnProjectile(
             WeaponConfig.ProjectileTemplate,
             projectilesShootingPoint);
-        projectile.Shoot();
+        projectile.Shoot(Config.Damage);
 
         CallUseEvent();
     }

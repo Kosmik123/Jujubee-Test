@@ -10,9 +10,12 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private float maxDistance;
     private float currentDistance;
-    
-    public void Shoot()
+
+    private int damage;
+
+    public void Shoot(int damage)
     {
+        this.damage = damage;
         enabled = true;
         currentDistance = 0;
     }
@@ -24,5 +27,15 @@ public class Projectile : MonoBehaviour
         currentDistance += distanceThisFrame;
         if (currentDistance > maxDistance)
             OnMaxDistanceTraveled.Invoke(this);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        var damagable = collision.gameObject.GetComponentInParent<DamagableObject>();
+        if (damagable)
+        {
+            damagable.Damage(damage);
+            OnMaxDistanceTraveled.Invoke(this);
+        }
     }
 }

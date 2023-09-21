@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 
 public class MeleeWeapon : Weapon<MeleeWeaponConfig>
 {
@@ -49,7 +48,6 @@ public class MeleeWeapon : Weapon<MeleeWeaponConfig>
     private IEnumerator AttackAfterDelayCo(DamagableObject enemy)
     {
         yield return wait;
-        Debug.Log($"Inflicted {Config.Damage} points of melee damage");
         enemy.Damage(Config.Damage);
     }
 
